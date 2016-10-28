@@ -11,7 +11,7 @@ const registerPaths = () => {
     $(`a[href="#${route}"]`).on('click', (event) => {
       event.preventDefault();
 
-        router.navigate(route);
+      router.navigate(route);
     });
   });
 };
