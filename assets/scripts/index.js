@@ -1,7 +1,14 @@
 'use strict';
 
-// user require with a reference to bundle the file and use it in this file
-// var example = require('./example');
+const initializeRouter = () => {
+  const appRouter = require('./router/index');
 
-// use require without a reference to ensure a file is bundled
-require('./router/index');
+  appRouter.useMiddleware(require('./router/dom').transition);
+
+  appRouter.start();
+};
+
+$(() => {
+  initializeRouter();
+  require('./router/events').registerPaths();
+});
